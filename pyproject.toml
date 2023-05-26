@@ -1,0 +1,28 @@
+[project]
+name = "ACT4E-mcdp-MySolution"
+version = "0.1"
+authors = [{ name = "My Name", email = "invalid@invalid.com" }]
+dependencies = [
+    "ACT4E-mcdp",
+]
+
+[tool]
+[tool.poetry]
+name = "ACT4E-mcdp-MySolution"
+version = "0.1"
+description = ""
+authors = ["My Name <invalid@invalid.com>"]
+packages = [
+    { from = "src", include = "act4e_mcdp_solution" },
+]
+[tool.poetry.dependencies]
+python = "^3.10"
+[tool.setuptools]
+packages = [
+    "act4e_mcdp_solution",
+]
+package-dir = { "" = "src" }
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
