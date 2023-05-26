@@ -1,18 +1,15 @@
 # Setup
 
-## Install Docker
+## Install required software
 
-<ul>
-    <li> (Mac, Linux) Follow the [installation instructions](https://docs.docker.com/get-docker/) </li>
-    <li>(Windows):
-        <ul>
-         <li>Follow the manual installation steps for Windows Subsystem for Linux [here](https://docs.microsoft.com/en-us/windows/wsl/install). On step 1, follow the recommendation of updating to WSL 2. You do not necessarily need to install Windows Terminal. </li>
-            <li>Now go [here](https://docs.docker.com/desktop/windows/install/) and follow the "Install Docker Desktop on Windows" instructions. You can then start Docker Desktop and follow the quick start quide.</li>
-        </ul>
-    </li>
-</ul>
+Install Docker:
 
-## Install VS Code.
+* (Mac, Linux) Follow the [installation instructions](https://docs.docker.com/get-docker/)
+* (Windows): Follow the manual installation steps for Windows Subsystem for Linux [here](https://docs.microsoft.com/en-us/windows/wsl/install). On step 1, follow the recommendation of updating to WSL 2. You do not necessarily need to install Windows Terminal. Now go [here](https://docs.docker.com/desktop/windows/install/) and follow the "Install Docker Desktop on Windows" instructions. You can then start Docker Desktop and follow the quick start quide.
+
+Install VS Code [using the instructions online](https://code.visualstudio.com/download).
+
+## Open the folder in VS Code using "Dev Container"
 
 Select File -> Open and select *the entire folder*.
 
