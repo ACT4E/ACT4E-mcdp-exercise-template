@@ -1,6 +1,6 @@
-## Setup
+# Setup
 
-### Install Docker
+## Install Docker
 
 <ul>
     <li> (Mac, Linux) Follow the [installation instructions](https://docs.docker.com/get-docker/) </li>
@@ -12,7 +12,7 @@
     </li>
 </ul>
 
-### Install VS Code.
+## Install VS Code.
 
 Select File -> Open and select *the entire folder*.
 
@@ -28,18 +28,21 @@ Now you should have the folder open while VS Code is in "container development m
 
 You can create a new terminal using Terminal -> New Terminal.
 
-## Running tests
+## Install dependencies
 
 Install this package and dependencies using:
 
     pip install -e .
 
-The main dependency installed is `ACT4E-mcdp` which is also available [on this repo](https://github.com/ACT4E/ACT4E-mcdp).
+The main dependency installed is `ACT4E-mcdp` which is available [on this repo](https://github.com/ACT4E/ACT4E-mcdp).
 That library takes care of parsing the models and queries.
+Please refer to the [online documentation](https://act4e-mcdp.readthedocs.io/en/latest/) for more information.
 
 If we tell you to update the library, use this:
 
     pip install -U ACT4E-mcdp
+
+## Running the tests
 
 Use this command to download the test cases:
 
@@ -47,7 +50,7 @@ Use this command to download the test cases:
 
 Then you have available a few test cases in the directory `downloaded/`.
 
-You should be able to run this solver:
+This is the command you use to run the solver:
 
     act4e-mcdp-solve \
         --solver act4e_mcdp_solution.MySolution \
@@ -71,3 +74,8 @@ INFO solution: UpperSet(minima=[])
 
 The template `act4e_mcdp_solution.MySolution` always returns an empty `UpperSet` (= infeasible).
 At this point, you can start implementing your solver.
+
+For testing, run `act4e-mcdp-solve` on different files.
+
+
+TODO: provide a exhaustive test case.
