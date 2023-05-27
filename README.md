@@ -39,7 +39,9 @@ If we tell you to update the library, use this:
 
     pip install -U ACT4E-mcdp
 
-## Running the tests
+## Make sure everything is OK
+
+### Downloading test cases
 
 Use this command to download the test cases:
 
@@ -47,32 +49,55 @@ Use this command to download the test cases:
 
 Then you have available a few test cases in the directory `downloaded/`.
 
-This is the command you use to run the solver:
+### Running the DP solver
 
-    act4e-mcdp-solve \
-        --solver act4e_mcdp_solution.MySolution \
+This is the command you use to run the DP solver:
+
+    act4e-mcdp-solve-dp \
+        --solver act4e_mcdp_solution.DPSolver \
         --query FixFunMinRes \
-        --model downloaded/lib1-parts.e03_splitter1.models.mcdpr1.yaml \
-        --data '{f: 10}'
+        --model downloaded/lib1-parts.e03_splitter1.primitivedps.mcdpr1.yaml \
+        --data '42'
 
-In turn:
+In brief:
 
-* `--solver act4e_mcdp_solution.MySolution`: this selects your solver;
+* `--solver act4e_mcdp_solution.DPSolver`: this selects the class for your solver;
 * `--query FixFunMinRes`: this selects `FixFunMinRes` (other choice: `FixResMaxFun`);
-* `--model downloaded/lib1-parts.e03_splitter1.models.mcdpr1.yaml`: this selects the model to use for optimization;
-* `--data '{f: 10}'`: this selects the query to give. It is a YAML dictionary with a key for each functionality name.
+* `--model downloaded/lib1-parts.e03_splitter1.primitivedps.mcdpr1.yaml`: this selects the model to use for optimization;
+* `--data '10'`: this selects the query to give. 
+
+It is a YAML dictionary with a key for each functionality name.
 
 You will see the result in the logs:
 
 ```
-INFO query: {'f': Decimal('10')}
-INFO solution: UpperSet(minima=[])
+INFO query: 10
+INFO solution: Interval(pessimistic=UpperSet(minima=[]), optimistic=UpperSet(minima=[]))
 ```
 
 The template `act4e_mcdp_solution.MySolution` always returns an empty `UpperSet` (= infeasible).
-At this point, you can start implementing your solver.
-
-For testing, run `act4e-mcdp-solve` on different files.
 
 
-TODO: provide a exhaustive test case.
+### Running the MCDP solver
+
+
+This is the command you use to run the MCDP solver:
+
+    act4e-mcdp-solve-mcdp \
+        --solver act4e_mcdp_solution.MCDPSolver \
+        --query FixFunMinRes \
+        --model downloaded/lib1-parts.e03_splitter1.models.mcdpr1.yaml \
+        --data '{f: 42}'
+
+Note that for the MCDP solver we give a file of type `models.mcdpr1.yaml` instead of `primitivedps.mcdpr1.yaml`.
+
+For the data, we use a key-value pair with the functionality name and the value.
+
+You should see the output:
+
+    query: {'f': Decimal('42')}
+    solution: Interval(pessimistic=UpperSet(minima=[]), optimistic=UpperSet(minima=[]))
+
+## Next steps
+
+TODO: exhaustive test case
