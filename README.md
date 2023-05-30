@@ -60,13 +60,13 @@ Then you have available a few test cases in the directory `downloaded/`.
         --solver act4e_mcdp_solution.DPSolver \
         --query FixFunMinRes \
         --model downloaded/lib1-parts.e03_splitter1.primitivedps.mcdpr1.yaml \
-        --data '42'
+        --data '10'
 
 In brief:
 
 * `--solver act4e_mcdp_solution.DPSolver`: this selects the class for your solver;
 * `--query FixFunMinRes`: this selects `FixFunMinRes` (other choice: `FixResMaxFun`);
-* `--model downloaded/lib1-parts.e03_splitter1.primitivedps.mcdpr1.yaml`: this selects the model to use for optimization;
+* `--model downloaded/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml`: this selects the model to use for optimization;
 * `--data '10'`: this selects the query to give.
 
 It is a YAML dictionary with a key for each functionality name.
