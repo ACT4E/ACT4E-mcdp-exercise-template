@@ -59,14 +59,14 @@ Then you have available a few test cases in the directory `downloaded/`.
     act4e-mcdp-solve-dp \
         --solver act4e_mcdp_solution.DPSolver \
         --query FixFunMinRes \
-        --model downloaded/lib1-parts.e03_splitter1.primitivedps.mcdpr1.yaml \
-        --data '42'
+        --model downloaded/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml \
+        --data '10'
 
 In brief:
 
 * `--solver act4e_mcdp_solution.DPSolver`: this selects the class for your solver;
 * `--query FixFunMinRes`: this selects `FixFunMinRes` (other choice: `FixResMaxFun`);
-* `--model downloaded/lib1-parts.e03_splitter1.primitivedps.mcdpr1.yaml`: this selects the model to use for optimization;
+* `--model downloaded/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml`: this selects the model to use for optimization;
 * `--data '10'`: this selects the query to give.
 
 It is a YAML dictionary with a key for each functionality name.
@@ -142,7 +142,7 @@ This is the command you use to run the MCDP solver:
     act4e-mcdp-solve-mcdp \
         --solver act4e_mcdp_solution.MCDPSolver \
         --query FixFunMinRes \
-        --model downloaded/lib1-parts.e03_splitter1.models.mcdpr1.yaml \
+        --model downloaded/lib1-parts.models.e03_splitter1.mcdpr1.yaml \
         --data '{f: 42}'
 
 Note that for the MCDP solver we give a file of type `models.mcdpr1.yaml` instead of `primitivedps.mcdpr1.yaml`.
