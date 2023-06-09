@@ -12,11 +12,11 @@ Install Docker:
 
 Install VS Code [using the instructions online](https://code.visualstudio.com/download).
 
-## Open the folder in VS Code using "Dev Container"
+## Open the folder in VS Code using "Dev Container."
 
 Select File -> Open and select *the entire folder*.
 
-VS Code will propose to install "Dev Container". Click "install".
+VS Code will propose to install "Dev Container." Click "install".
 
 VS Code will give you a message similar to:
 
@@ -42,9 +42,9 @@ If we tell you to update the library, use this:
 
     pip install -U ACT4E-mcdp
 
-## Make sure everything is OK
+## Make sure everything runs fine with the template solution
 
-### Downloading test cases
+### Download test cases
 
 Use this command to download the test cases:
 
@@ -52,24 +52,29 @@ Use this command to download the test cases:
 
 Then you have available a few test cases in the directory `downloaded/`.
 
+These are divided in "libraries" of varying complexity:
+
+* `lib1-parts`: very simple test cases, with only one primitive DP per file;
+* `lib2-simple`: simple test cases, with a few primitive DPs per file.
+* `lib3-advanced`: more complex test cases, with many primitive DPs per file.
+
 ### Running the DP solver for a specific model and query
 
-`act4e-mcdp-solve-dp` is the command you use to run the DP solver:
+`act4e-mcdp-solve-dp` is the command you use to run the DP solver 
+for a particular model and query:
 
     act4e-mcdp-solve-dp \
         --solver act4e_mcdp_solution.DPSolver \
         --query FixFunMinRes \
-        --model downloaded/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml \
+        --model downloaded/lib1-parts/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml \
         --data '10'
 
 In brief:
 
 * `--solver act4e_mcdp_solution.DPSolver`: this selects the class for your solver;
 * `--query FixFunMinRes`: this selects `FixFunMinRes` (other choice: `FixResMaxFun`);
-* `--model downloaded/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml`: this selects the model to use for optimization;
+* `--model downloaded/lib1-parts/lib1-parts.primitivedps.e03_splitter1.mcdpr1.yaml`: this selects the model to use for optimization;
 * `--data '10'`: this selects the query to give.
-
-It is a YAML dictionary with a key for each functionality name.
 
 You will see the result in the logs:
 
@@ -85,7 +90,7 @@ The template `act4e_mcdp_solution.MySolution` always returns an empty `UpperSet`
 `act4e-mcdp-solve-dp-queries` is the command you use to run the DP solver on a set of test cases:
 
     act4e-mcdp-solve-dp-queries \
-        -d downloaded \
+        -d downloaded/lib1-parts/ \
         --solver act4e_mcdp_solution.DPSolver
 
 In brief:
@@ -99,16 +104,16 @@ At the end of the processing, you will see an output similar to this:
 Summary:
 
 comparison_not_implemented:
-- downloaded/lib1-parts.dp-queries.FixFunMinRes.e10_conversions2-0006.mcdpr1.yaml
-- downloaded/lib1-parts.dp-queries.FixResMaxFun.e05_sumf-0002.mcdpr1.yaml
+- downloaded/lib1-parts/lib1-parts.dp-queries.FixFunMinRes.e10_conversions2-0006.mcdpr1.yaml
+- downloaded/lib1-parts/lib1-parts.dp-queries.FixResMaxFun.e05_sumf-0002.mcdpr1.yaml
 ...
 failed:
-- downloaded/lib1-parts.dp-queries.FixResMaxFun.e03_splitter1-0006.mcdpr1.yaml
-- downloaded/lib1-parts.dp-queries.FixFunMinRes.e12_catalogue_true-0010.mcdpr1.yaml
+- downloaded/lib1-parts/lib1-parts.dp-queries.FixResMaxFun.e03_splitter1-0006.mcdpr1.yaml
+- downloaded/lib1-parts/lib1-parts.dp-queries.FixFunMinRes.e12_catalogue_true-0010.mcdpr1.yaml
 ... 
 succeeded:
-- downloaded/lib1-parts.dp-queries.FixResMaxFun.e12_catalogue_empty-0001.mcdpr1.yaml
-- downloaded/lib1-parts.dp-queries.FixFunMinRes.e12_catalogue-0001.mcdpr1.yaml
+- downloaded/lib1-parts/lib1-parts.dp-queries.FixResMaxFun.e12_catalogue_empty-0001.mcdpr1.yaml
+- downloaded/lib1-parts/lib1-parts.dp-queries.FixFunMinRes.e12_catalogue-0001.mcdpr1.yaml
 ...
 INFO Find the summary at 'output_summary.yaml'
 ```
@@ -157,3 +162,24 @@ You should see the output:
 ## Running the MCDP solver on a set of test cases
 
 TODO: finish this part
+
+# ACT4E exercises requirements
+
+## Compulsory
+
+The following queries must run successfully:
+
+    act4e-mcdp-solve-dp-queries -d downloaded/lib1-parts  --solver act4e_mcdp_solution.DPSolver
+    act4e-mcdp-solve-dp-queries -d downloaded/lib2-simple --solver act4e_mcdp_solution.DPSolver
+## Optional 
+
+The following should work successfully:
+
+    act4e-mcdp-solve-mcdp-queries -d downloaded/lib1-parts  --solver act4e_mcdp_solution.MCDPSolver
+    act4e-mcdp-solve-mcdp-queries -d downloaded/lib2-simple --solver act4e_mcdp_solution.MCDPSolver
+
+
+## Optional (advanced)
+
+    act4e-mcdp-solve-dp-queries -d downloaded/lib3-advanced   --solver act4e_mcdp_solution.MCDPSolver
+    act4e-mcdp-solve-mcdp-queries -d downloaded/lib3-advanced --solver act4e_mcdp_solution.MCDPSolver
