@@ -1,3 +1,16 @@
+# ACT4EI, Spring 2023, DP exercise
+
+Note: this code exercise is **optional** -- it is very interesting to do, but we do not feel we have play-tested it enough for it to be a graded exercise. 
+
+## Overview
+
+There are 2 repositories to consider:
+
+- This repository contains these instructions and the solution template.
+- The repository [ACT4E/ACT4E-mcdp-exercise](https://github.com/ACT4E/ACT4E-mcdp-exercise) contains the test runner and the data structures to use.
+  Note that there are extensive docs available online. 
+
+
 # Setup
 
 ## Install required software
@@ -163,23 +176,40 @@ You should see the output:
 
 TODO: finish this part
 
-# ACT4E exercises requirements
+---
 
-## Compulsory
+# ACT4E exercises progression
 
-The following queries must run successfully:
+## Phase 1: solve simple DP queries for each component
+
+In this first phase, you will implement the queries for each type of DP in isolation.
+
+The following query must run successfully:
 
     act4e-mcdp-solve-dp-queries -d downloaded/lib1-parts  --solver act4e_mcdp_solution.DPSolver
+
+## Phase 2: solve DP queries with multiple DPs (series, parallel, loop) 
+
+In this phase, you will implement the queries for *composition of DPs* joined by series, parallel, loop constructions.
+
+The following query must run successfully:
+
     act4e-mcdp-solve-dp-queries -d downloaded/lib2-simple --solver act4e_mcdp_solution.DPSolver
-## Optional 
+
+## Phase 3: solve MCDP queries
+
+In this phase, you are given only the graph. You then need to convert the graph into a DP. 
+
+To do this, you might need some experience or strong intuition about manipulating graphs.
 
 The following should work successfully:
 
     act4e-mcdp-solve-mcdp-queries -d downloaded/lib1-parts  --solver act4e_mcdp_solution.MCDPSolver
     act4e-mcdp-solve-mcdp-queries -d downloaded/lib2-simple --solver act4e_mcdp_solution.MCDPSolver
 
+## Phase 4: solve advanced queries
 
-## Optional (advanced)
+These are advanced queries that require a nontrivial implementation to solve efficiently.
 
-    act4e-mcdp-solve-dp-queries -d downloaded/lib3-advanced   --solver act4e_mcdp_solution.MCDPSolver
+    act4e-mcdp-solve-dp-queries   -d downloaded/lib3-advanced   --solver act4e_mcdp_solution.DPSolver
     act4e-mcdp-solve-mcdp-queries -d downloaded/lib3-advanced --solver act4e_mcdp_solution.MCDPSolver
