@@ -333,3 +333,6 @@ If you make an account you can play around. You can obtain the YAML file read by
 
 [Example: drone model](https://editor.zuper.ai/editor/gh/co-design-models/ACT4E-exercises-spring2023/main/view/libraries/lib2-simple/specs/models/things/drone1/)
 
+ <img width="1113" alt="mcdpdrone" src="https://github.com/ACT4E/ACT4E-mcdp-exercise-template/assets/81052/b2e3c9ec-c55c-49c8-9e0c-071c02fb03c0">
+
+
