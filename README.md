@@ -1,6 +1,8 @@
 # ACT4EI, Spring 2023, DP exercise
 
-Note: for Spring 2023 this exercise is **optional** -- it is very interesting to do, but we do not feel we have play-tested it enough for it to be a graded exercise. 
+Note: for Spring 2023 this exercise is **optional** -- it is very interesting to do, but we do not feel we have play-tested it enough for it to be a graded exercise.
+
+This exercise will NOT affect your final grade in ACT4EI Spring 2023 course. The final grade will be calculated as if everyone got 100% in this exercise.
 
 
 
