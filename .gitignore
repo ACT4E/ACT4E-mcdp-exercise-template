@@ -4,4 +4,6 @@ __pycache__
 .DS_Store
 .python-version
 .vscode/*log
-.out-results/*html
+.out-results/*htmloutput_summary.yaml
+downloaded
+output_summary.yaml
